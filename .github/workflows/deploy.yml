@@ -30,11 +30,14 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+          
+      - name: Prepare ZIP
+        run: zip -r nextjs-app.zip .next package.json node_modules public
 
       - name: Deploy Next.js via Azure CLI
         run: |
           az webapp deploy \
             --resource-group rg-nextjs-nonprod \
             --name react-next-app \
-            --src-path . \
+            --src-path nextjs-app.zip \
             --type zip
