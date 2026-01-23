@@ -41,6 +41,7 @@ jobs:
         run: |
           zip -r nextjs-app.zip \
             .next/standalone \
+            .next/static \
             public \
             package.json \
             package-lock.json \
