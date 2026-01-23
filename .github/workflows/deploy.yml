@@ -38,6 +38,6 @@ jobs:
         run: |
           az webapp deploy \
             --resource-group rg-nextjs-nonprod \
-            --name react-next-app \
+            --name react-next-second \
             --src-path nextjs-app.zip \
             --type zip
