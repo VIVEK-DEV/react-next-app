@@ -35,14 +35,18 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+      #    Copy Static Files
+
+      - name: Copy Static Files
+        run: |
+          cp -r .next/static .next/standalone/.next/
 
       # 6️⃣ Prepare deployment ZIP
       - name: Prepare deployment ZIP
         run: |
           zip -r nextjs-app.zip \
-            .next/standalone/server.js \
-            .next/standalone/node_modules \ 
-            .next/static -j \
+            .next/standalone \
+            .next/static \
             public \
             package.json \
             package-lock.json \
