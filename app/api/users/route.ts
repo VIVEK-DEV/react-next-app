@@ -4,14 +4,19 @@ export const runtime = 'nodejs'
 export async function GET() {
   try {
     // Call external JSON API (JSONPlaceholder)
-    const response = await fetch('https://jsonplaceholder.typicode.com/users');
-    
+    const usersUrl = process.env.users_url;
+    if (!usersUrl) {
+      throw new Error("USERS_URL environment variable is not defined");
+    }
+    console.log("Fetching users from:", usersUrl);
+    const response = await fetch(usersUrl);
+
     if (!response.ok) {
       throw new Error('Failed to fetch from external API');
     }
-    
+
     const data = await response.json();
-    
+
     // Transform the data to match our format
     const users = data.slice(0, 4).map((user: any) => ({
       id: user.id,
