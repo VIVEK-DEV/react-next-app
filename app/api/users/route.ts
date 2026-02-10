@@ -4,7 +4,7 @@ export const runtime = 'nodejs'
 export async function GET() {
   try {
     // Call external JSON API (JSONPlaceholder)
-    const usersUrl = process.env.users_url;
+    const usersUrl = process.env.users_url || 'https://jsonplaceholder.typicode.com/users';
     if (!usersUrl) {
       throw new Error("USERS_URL environment variable is not defined");
     }
