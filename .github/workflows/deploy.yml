@@ -51,6 +51,12 @@ jobs:
             package.json \
             package-lock.json \
             -x '*.git*'
+      # 7️⃣ Upload ZIP as artifact
+      - name: Upload ZIP as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nextjs-app-zip
+          path: nextjs-app.zip
 
       # 7️⃣ Deploy ZIP to Azure Web App
       - name: Deploy to Azure Web App
