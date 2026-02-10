@@ -34,7 +34,7 @@ export default function Home() {
 
   return (
     <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-      <h1>Users API Demo</h1>
+      <h1>Users API Demo-Uodated</h1>
       <p>Data from: /api/users</p>
 
       {error && <p style={{ color: 'red' }}>Error: {error}</p>}
