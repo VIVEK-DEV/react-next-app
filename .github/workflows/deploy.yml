@@ -3,7 +3,7 @@ name: Deploy Next.js Standalone to Azure Web App
 on:
   push:
     branches:
-      - main
+      - feature-test
   workflow_dispatch:
 
 jobs:
