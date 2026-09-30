@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-export const runtime = 'nodejs'
+//export const runtime = 'nodejs'
 
 export async function GET() {
   try {
@@ -8,7 +8,7 @@ export async function GET() {
     if (!usersUrl) {
       throw new Error("USERS_URL environment variable is not defined");
     }
-    console.log("Fetching users from:", usersUrl);
+    console.log("Fetching users from with runtime export:", usersUrl);
     const response = await fetch(usersUrl);
 
     if (!response.ok) {
