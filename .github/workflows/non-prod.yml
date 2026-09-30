@@ -59,6 +59,11 @@ jobs:
             cp next.config.js "$ARTIFACT/next.config.js"
           fi
 
+          # Copy web.config for Azure deployment
+          if [ -f "web.config" ]; then
+            cp web.config "$ARTIFACT/web.config"
+          fi
+
           # Zip the artifact
           cd "$ARTIFACT"
           zip -r "../${{ env.ZIP_NAME }}" .
